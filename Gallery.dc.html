@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Real Wedding Gallery | Linda Mani — Civil Marriage Celebrant Sydney</title>
+<meta name="description" content="A gallery of real ceremonies led by Linda Mani, civil marriage celebrant across South West Sydney — weddings, elopements and vow renewals from Campbelltown to Camden, Liverpool and Menai.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}body{margin:0;background:#F6F2EA;}a{color:#8a6d3f;}a:hover{color:#B08D57;}::selection{background:#B08D57;color:#F6F2EA;}</style>
+</helmet>
+<div style="font-family:'Mulish',sans-serif;color:#2B2B27;background:#F6F2EA;">
+  <dc-import name="SiteHeader" active="gallery" hint-size="100%,76px"></dc-import>
+
+  <section style="max-width:820px;margin:0 auto;padding:76px 28px 10px;text-align:center;">
+    <div style="font-size:12.5px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:#B08D57;">Real weddings</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:52px;line-height:1.08;margin:16px 0 0;color:#26352C;">A gallery of real ceremonies</h1>
+    <p style="font-size:18px;line-height:1.7;color:#4E534A;margin:20px auto 0;max-width:640px;">Sixteen years of couples across South West Sydney — from intimate elopements to big multicultural celebrations. Drag your favourite photos straight onto the frames below; each one remembers its image.</p>
+  </section>
+
+  <section style="max-width:1160px;margin:0 auto;padding:40px 28px 30px;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px;">
+      <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="18">
+        <div style="{{ g.wrap }}">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ g.id }}" shape="rect" fit="cover" placeholder="{{ g.placeholder }}" hint-size="100%,100%"></x-import>
+        </div>
+      </sc-for>
+    </div>
+    <p style="text-align:center;font-size:12.5px;color:#9aa094;margin-top:20px;font-style:italic;">Tip: save photos from WhatsApp to your phone or computer first, then drag them onto a frame.</p>
+  </section>
+
+  <section style="background:#33463B;color:#DDE2D9;">
+    <div style="max-width:700px;margin:0 auto;padding:76px 28px;text-align:center;">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:38px;margin:0;color:#F6F2EA;">Picture your day with Linda</h2>
+      <p style="font-size:16px;line-height:1.7;color:#AFB6AC;margin:16px auto 28px;max-width:480px;">If you'd love a ceremony like these, let's talk — I'll check your date and answer every question.</p>
+      <a href="Contact.dc.html" style="display:inline-block;background:#B08D57;color:#2A362E;text-decoration:none;padding:15px 32px;border-radius:2px;font-size:15px;font-weight:700;">Enquire with Linda</a>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    const phs = ["A ceremony moment","The vows","Rings & hands","Confetti & celebration","Signing the register","The first kiss","Family & guests","Golden-hour portrait","Walking down the aisle","Unity candle","The setting","Laughter & tears","Cultural traditions","Guests celebrating","The arbour","A quiet moment","Toasts","Just married"];
+    // varied mosaic: mark some tiles as feature (2x2) / tall / wide
+    const big = { 0: "cc", 7: "wide", 10: "tall", 13: "wide", 16: "cc" };
+    return {
+      gallery: phs.map((ph, i) => {
+        const wrap = { position: "relative", overflow: "hidden", borderRadius: "4px", border: "1px solid rgba(51,70,59,0.12)", background: "#EFE8DB" };
+        const kind = big[i];
+        if (kind === "cc") { wrap.gridColumn = "span 2"; wrap.gridRow = "span 2"; }
+        else if (kind === "tall") { wrap.gridRow = "span 2"; }
+        else if (kind === "wide") { wrap.gridColumn = "span 2"; }
+        return { id: "gallery-full-" + (i + 1), placeholder: ph, wrap };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>

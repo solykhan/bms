@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Wedding Journal | Marriage & Celebrant Advice for NSW Couples — Linda Mani</title>
+<meta name="description" content="Expert, plain-English guides to getting married in NSW — legal requirements, the Notice of Intended Marriage, choosing a celebrant, multicultural ceremonies and the best wedding locations in South West Sydney.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}body{margin:0;background:#F6F2EA;}a{color:#8a6d3f;}a:hover{color:#B08D57;}::selection{background:#B08D57;color:#F6F2EA;}</style>
+</helmet>
+<div style="font-family:'Mulish',sans-serif;color:#2B2B27;background:#F6F2EA;">
+  <dc-import name="SiteHeader" active="blog" hint-size="100%,76px"></dc-import>
+
+  <section style="max-width:820px;margin:0 auto;padding:76px 28px 30px;text-align:center;">
+    <div style="font-size:12.5px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:#B08D57;">The wedding journal</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:52px;line-height:1.08;margin:16px 0 0;color:#26352C;">Plan your marriage with confidence</h1>
+    <p style="font-size:18px;line-height:1.7;color:#4E534A;margin:20px auto 0;max-width:620px;">Straight-talking, experience-backed guides to getting legally married in NSW — written by a celebrant who has walked hundreds of couples through it.</p>
+  </section>
+
+  <!-- FEATURED -->
+  <section style="max-width:1160px;margin:0 auto;padding:40px 28px;">
+    <a href="{{ featured.href }}" style="display:grid;grid-template-columns:1.1fr 1fr;gap:0;text-decoration:none;background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:6px;overflow:hidden;">
+      <div style="position:relative;min-height:360px;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="blog-featured" shape="rect" fit="cover" placeholder="Featured article image" hint-size="100%,100%"></x-import>
+      </div>
+      <div style="padding:48px 44px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#B08D57;">Featured · {{ featured.tag }}</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:34px;line-height:1.15;margin:14px 0 0;color:#26352C;">{{ featured.title }}</h2>
+        <p style="font-size:15.5px;line-height:1.7;color:#5C6157;margin:14px 0 0;">{{ featured.excerpt }}</p>
+        <div style="font-size:13px;font-weight:600;color:#33463B;margin-top:20px;border-bottom:2px solid #B08D57;padding-bottom:3px;align-self:flex-start;">Read the guide →</div>
+      </div>
+    </a>
+  </section>
+
+  <section style="max-width:1160px;margin:0 auto;padding:24px 28px 90px;">
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
+      <sc-for list="{{ posts }}" as="p" hint-placeholder-count="4">
+        <a href="{{ p.href }}" style="display:grid;grid-template-columns:200px 1fr;text-decoration:none;background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:6px;overflow:hidden;">
+          <div style="position:relative;min-height:180px;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.slot }}" shape="rect" fit="cover" placeholder="Image" hint-size="100%,100%"></x-import>
+          </div>
+          <div style="padding:26px 24px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#B08D57;">{{ p.tag }}</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;line-height:1.2;margin:9px 0 0;color:#26352C;">{{ p.title }}</h3>
+            <p style="font-size:14px;line-height:1.6;color:#5C6157;margin:9px 0 0;">{{ p.excerpt }}</p>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-if value="{{ hasAutoPosts }}" hint-placeholder-val="{{ false }}">
+    <section style="background:#EFE8DB;">
+      <div style="max-width:1160px;margin:0 auto;padding:70px 28px;">
+        <div style="text-align:center;margin-bottom:40px;">
+          <div style="font-size:12.5px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:#B08D57;">Fresh from the journal</div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:38px;margin:14px 0 0;color:#26352C;">Latest articles</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+          <sc-for list="{{ autoPosts }}" as="ap" hint-placeholder-count="3">
+            <a href="{{ ap.href }}" style="display:flex;flex-direction:column;text-decoration:none;background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:6px;padding:26px 24px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+                <span style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#B08D57;">{{ ap.category }}</span>
+                <span style="font-size:12px;color:#9aa094;">{{ ap.date }}</span>
+              </div>
+              <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;line-height:1.22;margin:12px 0 0;color:#26352C;">{{ ap.title }}</h3>
+              <p style="font-size:14px;line-height:1.6;color:#5C6157;margin:10px 0 0;">{{ ap.meta }}</p>
+              <span style="font-size:13px;font-weight:600;color:#33463B;margin-top:16px;border-bottom:2px solid #B08D57;padding-bottom:3px;align-self:flex-start;">Read article →</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { autoPosts: [] };
+  componentDidMount() {
+    fetch("cron/posts.json", { cache: "no-store" })
+      .then(r => r.ok ? r.json() : [])
+      .then(list => {
+        if (Array.isArray(list) && list.length) {
+          this.setState({ autoPosts: list.slice(0, 9).map(p => ({
+            title: p.title,
+            meta: p.meta || "",
+            category: p.category || "Guide",
+            date: p.date || "",
+            href: (p.slug || "").replace(/\.html$/, "") + ".html",
+          })) });
+        }
+      })
+      .catch(() => {});
+  }
+  renderVals() {
+    return {
+      autoPosts: this.state.autoPosts,
+      hasAutoPosts: this.state.autoPosts.length > 0,
+      featured: { tag: "Legal Guide", title: "How to Get Legally Married in NSW: The Complete 2026 Guide", excerpt: "Everything you need to legally marry in New South Wales — the paperwork, the timeline, the costs, the ID you need, and the mistakes couples make. Written by a celebrant with 16 years of experience.", href: "article-legally-married-nsw.dc.html" },
+      posts: [
+        { tag: "Legal · Planning", title: "The Notice of Intended Marriage (NOIM), Explained Simply", excerpt: "The one form you can't skip. When to lodge it, who signs it, and how the one-month rule really works.", href: "article-noim-explained.dc.html", slot: "blog-p1" },
+        { tag: "Local Guide", title: "The Best Wedding Ceremony Locations in South West Sydney", excerpt: "Gardens, estates, parks and hidden gems from Camden to Menai, chosen by a local celebrant.", href: "article-swsydney-locations.dc.html", slot: "blog-p2" },
+        { tag: "Advice", title: "How to Choose the Right Marriage Celebrant (10 Questions to Ask)", excerpt: "Not all celebrants are the same. Here's how to find one who fits your day and your budget.", href: "article-choosing-celebrant.dc.html", slot: "blog-p3" },
+        { tag: "Ceremony Ideas", title: "Planning a Multicultural or Bilingual Wedding Ceremony", excerpt: "How to honour two cultures, blend traditions and include every guest — from Hindi elements to Christian blessings.", href: "article-multicultural-ceremonies.dc.html", slot: "blog-p4" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

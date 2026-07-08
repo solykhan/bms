@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Civil Marriage Celebrant | Wedding Celebrant Sydney — Linda Mani</title>
+<meta name="description" content="Linda Mani — civil marriage celebrant and wedding celebrant serving South West Sydney. Personalised, legally sound ceremonies with 16 years' experience.">
+<meta name="robots" content="noindex">
+<!-- Preview/editor route only. Live SEO pages are the static <slug>.html files. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="./suburbs-data.js"></script>
+<style>
+  *{box-sizing:border-box;}body{margin:0;background:#F6F2EA;}
+  a{color:#8a6d3f;}a:hover{color:#B08D57;}::selection{background:#B08D57;color:#F6F2EA;}
+  .prose h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:31px;line-height:1.2;color:#26352C;margin:44px 0 0;}
+  .prose h3{font-size:18px;font-weight:700;color:#26352C;margin:26px 0 0;}
+  .prose p{font-size:17px;line-height:1.85;color:#3d423a;margin:16px 0 0;}
+  .prose strong{color:#26352C;}
+</style>
+</helmet>
+<div style="font-family:'Mulish',sans-serif;color:#2B2B27;background:#F6F2EA;">
+  <dc-import name="SiteHeader" active="areas" hint-size="100%,76px"></dc-import>
+
+  <sc-if value="{{ notReady }}" hint-placeholder-val="{{ true }}">
+    <div style="max-width:720px;margin:0 auto;padding:120px 28px;text-align:center;color:#9aa094;font-size:16px;">Loading suburb…</div>
+  </sc-if>
+
+  <sc-if value="{{ found }}" hint-placeholder-val="{{ false }}">
+    <article>
+      <!-- HERO -->
+      <section style="max-width:1160px;margin:0 auto;padding:40px 28px 0;">
+        <div style="font-size:13px;color:#8C948A;margin-bottom:18px;">
+          <a href="Home.dc.html" style="text-decoration:none;color:#8C948A;">Home</a> &nbsp;›&nbsp;
+          <a href="Areas.dc.html" style="text-decoration:none;color:#8C948A;">Service Areas</a> &nbsp;›&nbsp;
+          <span style="color:#5C6157;">{{ name }}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1.05fr 0.95fr;gap:52px;align-items:center;">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:9px;background:rgba(51,70,59,0.07);border:1px solid rgba(51,70,59,0.14);padding:6px 14px;border-radius:100px;font-size:11.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#33463B;">
+              <span style="width:6px;height:6px;border-radius:50%;background:#B08D57;"></span>{{ regionName }} · {{ postcode }}
+            </div>
+            <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:48px;line-height:1.08;margin:18px 0 0;color:#26352C;">Civil Marriage Celebrant {{ name }}</h1>
+            <p style="font-size:18px;line-height:1.65;color:#4E534A;margin:20px 0 0;">{{ lead }} As a <strong>wedding celebrant serving Sydney</strong>'s South West, I bring warm, personalised and legally seamless ceremonies to couples in {{ name }} and the surrounding suburbs.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;">
+              <a href="Contact.dc.html" style="background:#33463B;color:#F6F2EA;text-decoration:none;padding:14px 28px;border-radius:2px;font-size:14.5px;font-weight:600;">Check your date</a>
+              <a href="tel:0421768296" style="background:transparent;color:#33463B;text-decoration:none;padding:14px 26px;border-radius:2px;font-size:14.5px;font-weight:600;border:1px solid rgba(51,70,59,0.28);">0421 768 296</a>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;aspect-ratio:4/3;border-radius:3px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(38,53,44,0.45);">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="suburb-{{ slug }}" shape="rect" fit="cover" placeholder="Drop a photo of {{ name }}" hint-size="100%,100%"></x-import>
+          </div>
+        </div>
+      </section>
+
+      <!-- BODY -->
+      <div class="prose" style="max-width:720px;margin:0 auto;padding:20px 28px 0;">
+        <h2>Getting married in {{ name }}</h2>
+        <p>{{ about }}</p>
+
+        <h2>Where couples marry in {{ name }}</h2>
+        <p>{{ ceremony }}</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;">
+          <sc-for list="{{ venues }}" as="v" hint-placeholder-count="3">
+            <div style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:6px;padding:18px 22px;">
+              <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;color:#26352C;">{{ v.name }}</div>
+              <div style="font-size:14.5px;color:#5C6157;margin-top:4px;">{{ v.note }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="background:#EFE8DB;border-left:3px solid #B08D57;border-radius:0 6px 6px 0;padding:20px 24px;margin:28px 0 0;">
+          <div style="font-size:11.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#B08D57;">Local tip</div>
+          <p style="font-size:15.5px;line-height:1.7;color:#3d423a;margin:8px 0 0;">{{ tip }}</p>
+        </div>
+
+        <h2>A civil marriage celebrant who knows {{ name }}</h2>
+        <p>Choosing a <strong>civil marriage celebrant in Sydney</strong> who genuinely knows your area makes a real difference on the day. With 16 years' experience and hundreds of ceremonies behind me, I understand how {{ name }} weddings run — the venues, the light, the traffic and the little logistical details that keep a day calm. As a Commonwealth-registered celebrant (Australian Marriage Celebrants, Member M001457), I handle every legal requirement so you can focus on the moment.</p>
+        <p>I write each ceremony from scratch, so it sounds like you — relaxed or formal, modern or traditional, and I'm a specialist in multicultural and bilingual ceremonies that blend two families' traditions, including Christian blessings and Hindi elements. You can read more <a href="About.dc.html">about my approach</a>, browse my <a href="Services.dc.html">ceremonies and guide prices</a>, or see every <a href="Areas.dc.html">area I serve</a>.</p>
+
+        <h2>The legal side, handled for you</h2>
+        <p>Whether you're marrying in {{ name }} or anywhere across Sydney's South West, the legal requirements are the same — and I take care of all of them. That starts with your <a href="article-noim-explained.dc.html">Notice of Intended Marriage</a>, which must be lodged at least one calendar month before your wedding, and continues through the Declaration of No Legal Impediment, the legal vows, two witnesses and registering your marriage afterwards. If you'd like the full picture, my complete guide to <a href="article-legally-married-nsw.dc.html">getting legally married in NSW</a> walks through every step in plain English.</p>
+        <p>Not sure which ceremony suits you? Couples in {{ name }} choose everything from a full personalised wedding to an intimate elopement or a simple legals-only ceremony — and I'm happy to talk it through and recommend the right fit, with a clear quote and no obligation.</p>
+
+        <h2>Why {{ name }} couples choose Linda</h2>
+        <p>Booking a celebrant is one of the first and most important decisions you'll make, because it's the one supplier who is with you for the entire ceremony — the person whose words your guests remember. Here's what couples across {{ name }} tell me matters most:</p>
+        <ul style="margin:16px 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+          <li style="font-size:16.5px;line-height:1.7;color:#3d423a;padding-left:28px;position:relative;"><span style="position:absolute;left:0;color:#B08D57;">✦</span><strong>16 years of steady experience.</strong> Hundreds of ceremonies mean nothing surprises me — and on your day, that calm is contagious.</li>
+          <li style="font-size:16.5px;line-height:1.7;color:#3d423a;padding-left:28px;position:relative;"><span style="position:absolute;left:0;color:#B08D57;">✦</span><strong>A ceremony written for you.</strong> I never work from a template — every {{ name }} ceremony is crafted from scratch to sound like you.</li>
+          <li style="font-size:16.5px;line-height:1.7;color:#3d423a;padding-left:28px;position:relative;"><span style="position:absolute;left:0;color:#B08D57;">✦</span><strong>Genuinely multicultural.</strong> I blend traditions, faiths and languages so every guest, from every side of the family, feels included.</li>
+          <li style="font-size:16.5px;line-height:1.7;color:#3d423a;padding-left:28px;position:relative;"><span style="position:absolute;left:0;color:#B08D57;">✦</span><strong>Every legal detail handled.</strong> From your Notice of Intended Marriage to registering the marriage afterwards, the paperwork is my responsibility, not yours.</li>
+        </ul>
+        <p>If you'd like to know more about how I work before you get in touch, my page on <a href="article-choosing-celebrant.dc.html">how to choose the right marriage celebrant</a> sets out exactly the questions worth asking any celebrant you're considering in {{ name }}.</p>
+
+        <h2>Serving {{ name }} and nearby suburbs</h2>
+        <p>Travel is included across South West Sydney within roughly 20km of Macquarie Links, so wherever your day takes you around {{ name }}, I'll be there early and fully prepared. I also regularly marry couples in the neighbouring suburbs below — follow the links for a local guide to each:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;">
+          <sc-for list="{{ neighbours }}" as="nb" hint-placeholder-count="4">
+            <a href="{{ nb.href }}" style="border:1px solid rgba(51,70,59,0.2);border-radius:100px;padding:9px 17px;font-size:14px;color:#43563d;text-decoration:none;background:#FBF9F4;">Celebrant in {{ nb.name }} →</a>
+          </sc-for>
+        </div>
+
+        <h2>Ceremony options for {{ name }} couples</h2>
+        <p>Every couple I marry in {{ name }} is different, so I offer a full range of ceremonies and write each one from scratch. Here's how couples in the area typically choose:</p>
+        <h3>Personalised wedding ceremonies</h3>
+        <p>The full experience — a bespoke ceremony built around your story, with your love story, personal vows, symbolic rituals and the people who matter most woven in. This is the most popular choice for {{ name }} weddings, and it includes our planning meetings, a completely custom script, a professional PA system and all the legal paperwork.</p>
+        <h3>Elopements &amp; intimate ceremonies</h3>
+        <p>Beautifully complete for just the two of you and your witnesses. Perfect for a {{ name }} backyard, a nearby reserve or a small gathering where you want it simple but still deeply personal and legally sound.</p>
+        <h3>Legals-only ceremonies</h3>
+        <p>The legal essentials performed warmly and correctly in as little as a few minutes — ideal if you're having a separate celebration, or marrying for visa, travel or personal reasons. Everything is done strictly by the book.</p>
+        <h3>Renewal of vows &amp; commitment ceremonies</h3>
+        <p>Celebrate the years behind you, or honour your commitment on your own terms, with a heartfelt, fully personalised ceremony. You can see full details and guide prices on my <a href="Services.dc.html">services page</a>.</p>
+
+        <h2>Planning your {{ name }} wedding: a simple timeline</h2>
+        <p>One of the reasons couples in {{ name }} tell me they feel calm in the lead-up is that we follow a clear, unhurried path from our first hello to the moment you're married.</p>
+        <p><strong>6–12 months out:</strong> secure your date and your celebrant. Popular Saturdays across the {{ regionName }} area book out early, so this is the step I'd take first. <strong>At least one month before (and up to 18 months):</strong> we complete and lodge your Notice of Intended Marriage, and I check your identity documents and any divorce or death certificates. <strong>In the weeks before:</strong> we finalise your ceremony script, readings and any rituals, and hold a rehearsal if you'd like one. <strong>On the day:</strong> I arrive early, set up the PA, settle nerves, and marry you with warmth and confidence. <strong>Afterwards:</strong> I register your marriage and you order your official certificate.</p>
+        <p>Throughout, I'm only a call or message away for the small questions that inevitably come up — that steady, local support is a big part of what I offer {{ name }} couples.</p>
+
+        <h2>{{ name }} wedding celebrant — FAQs</h2>
+        <h3>Do you travel to {{ name }} for weddings?</h3>
+        <p>Yes. {{ name }} is within my core service area, so travel is included. I arrive early to set up my PA and settle any last-minute nerves before your ceremony begins.</p>
+        <h3>How far in advance should we book a celebrant in {{ name }}?</h3>
+        <p>Because your Notice of Intended Marriage must be lodged at least a month before the wedding, and popular dates book out, I recommend securing your celebrant 6–12 months ahead. That said, I'll always help with shorter timelines where the law allows.</p>
+        <h3>Can you include our culture, faith or language?</h3>
+        <p>Absolutely — it's one of my specialties. Many {{ name }} couples ask me to blend traditions, and I can weave in Christian blessings and Hindi elements so every guest feels part of your day. You can read more in my guide to <a href="article-multicultural-ceremonies.dc.html">multicultural ceremonies</a>.</p>
+        <h3>How much does a wedding celebrant in {{ name }} cost?</h3>
+        <p>My guide prices start from $350 for a legals-only ceremony and from $650 for a full personalised wedding, with travel to {{ name }} included. Your final quote depends on the ceremony type and how much bespoke writing your day calls for — I'll always give you a clear, itemised figure with no surprises.</p>
+        <h3>How long does the ceremony take?</h3>
+        <p>A full personalised {{ name }} wedding ceremony usually runs 20–30 minutes, while a legals-only ceremony can be as short as 5–10 minutes. We'll design the length and flow to suit your day and your guests.</p>
+
+        <p style="margin-top:30px;font-style:italic;color:#5C6157;">General information only, not legal advice — I'll confirm the current requirements for your specific situation.</p>
+      </div>
+
+      <div class="prose" style="max-width:720px;margin:0 auto;padding:0 28px;">
+        <h2>Your wedding celebrant across {{ name }} and Sydney's South West</h2>
+        <p>Being based right here in the {{ regionName }} area means I'm not a celebrant who travels in from the other side of the city for the first time on your wedding day. I know {{ name }}, I know the venues and reserves couples love, and I know how to keep a ceremony calm and beautifully paced whatever the setting. That local knowledge, paired with 16 years of experience as a <strong>civil marriage celebrant in Sydney</strong>, is what lets you relax and simply be present in the moment.</p>
+        <p>Whether you picture an intimate elopement, a big multicultural celebration or a simple legals-only ceremony, I'd be honoured to be your <strong>wedding celebrant in {{ name }}</strong>. Reach out whenever you're ready — there's no obligation, just a warm conversation about your day and how I can help make it unforgettable.</p>
+      </div>
+
+      <!-- CTA -->
+      <section style="background:#33463B;color:#DDE2D9;margin-top:60px;">
+        <div style="max-width:700px;margin:0 auto;padding:70px 28px;text-align:center;">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;margin:0;color:#F6F2EA;">Planning a wedding in {{ name }}?</h2>
+          <p style="font-size:16px;line-height:1.7;color:#AFB6AC;margin:16px auto 28px;max-width:480px;">Tell me about your day and I'll confirm my availability — usually within a day.</p>
+          <a href="Contact.dc.html" style="display:inline-block;background:#B08D57;color:#2A362E;text-decoration:none;padding:15px 32px;border-radius:2px;font-size:15px;font-weight:700;">Enquire with Linda</a>
+          <div style="margin-top:20px;"><a href="Areas.dc.html" style="color:#AFB6AC;font-size:13.5px;">← Back to all service areas</a></div>
+        </div>
+      </section>
+    </article>
+  </sc-if>
+
+  <sc-if value="{{ missing }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:640px;margin:0 auto;padding:110px 28px;text-align:center;">
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:38px;color:#26352C;margin:0;">Suburb not found</h1>
+      <p style="font-size:16px;color:#5C6157;margin:16px 0 26px;">We couldn't find that suburb. See every area Linda serves across South West Sydney.</p>
+      <a href="Areas.dc.html" style="background:#33463B;color:#F6F2EA;text-decoration:none;padding:14px 28px;border-radius:2px;font-size:14.5px;font-weight:600;">View all service areas</a>
+    </div>
+  </sc-if>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1160,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { ready: false, data: null };
+
+  componentDidMount() {
+    const D = window.SUBURBS_DATA;
+    let slug = "";
+    try { slug = new URLSearchParams(window.location.search).get("suburb") || ""; } catch (e) {}
+    if (!slug) slug = "macquarie-fields";
+    slug = slug.toLowerCase().trim();
+    const data = D && D.list ? D.list.find(s => s.slug === slug) : null;
+    this.setState({ ready: true, data });
+    if (data) { this._t = setTimeout(() => this.applyMeta(data), 60); }
+  }
+  componentDidUpdate() { if (this.state.data) this.applyMeta(this.state.data); }
+  applyMeta(data) {
+    const title = "Civil Marriage Celebrant " + data.name + " | Wedding Celebrant Sydney — Linda Mani";
+    try {
+      if (document.title !== title) document.title = title;
+      const m = document.querySelector('meta[name="description"]');
+      if (m) m.setAttribute("content", "Civil marriage celebrant & wedding celebrant in " + data.name + " (" + data.postcode + "), South West Sydney. " + data.lead + " 16 years' experience, all paperwork handled. Call Linda Mani on 0421 768 296.");
+    } catch (e) {}
+  }
+
+  renderVals() {
+    const D = window.SUBURBS_DATA;
+    const s = this.state.data;
+    if (!this.state.ready) return { notReady: true, found: false, missing: false };
+    if (!s) return { notReady: false, found: false, missing: true };
+    const byslug = {};
+    (D && D.list ? D.list : []).forEach(x => { byslug[x.slug] = x; });
+    const neighbours = (s.neighbours || []).map(sl => byslug[sl]).filter(Boolean)
+      .map(n => ({ name: n.name, href: "Suburb.dc.html?suburb=" + n.slug }));
+    const regionName = (D && D.regions && D.regions[s.region]) || "South West Sydney";
+    return {
+      notReady: false, found: true, missing: false,
+      slug: s.slug, name: s.name, postcode: s.postcode, regionName,
+      lead: s.lead, about: s.about, ceremony: s.ceremony, tip: s.tip,
+      venues: s.venues || [], neighbours,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Contact Linda Mani | Book a Wedding Celebrant in South West Sydney</title>
+<meta name="description" content="Enquire with Linda Mani, civil marriage celebrant in Macquarie Links, South West Sydney. Call 0421 768 296 or email info@brightmorningstar.net to check your wedding date.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}body{margin:0;background:#F6F2EA;}a{color:#8a6d3f;}a:hover{color:#B08D57;}::selection{background:#B08D57;color:#F6F2EA;}
+input,select,textarea{font-family:'Mulish',sans-serif;font-size:15px;width:100%;padding:13px 15px;border:1px solid rgba(51,70,59,0.22);border-radius:3px;background:#FBF9F4;color:#2B2B27;outline:none;}
+input:focus,select:focus,textarea:focus{border-color:#B08D57;}
+label{font-size:13px;font-weight:600;color:#43563d;margin-bottom:7px;display:block;}</style>
+</helmet>
+<div style="font-family:'Mulish',sans-serif;color:#2B2B27;background:#F6F2EA;">
+  <dc-import name="SiteHeader" active="contact" hint-size="100%,76px"></dc-import>
+
+  <section style="max-width:1160px;margin:0 auto;padding:76px 28px 90px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:start;">
+    <div>
+      <div style="font-size:12.5px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:#B08D57;">Get in touch</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:48px;line-height:1.1;margin:16px 0 0;color:#26352C;">Let's check your date</h1>
+      <p style="font-size:17px;line-height:1.7;color:#4E534A;margin:20px 0 0;">Share a few details about your day and I'll get back to you — usually within a day — to confirm my availability and answer your questions.</p>
+
+      <div style="display:flex;flex-direction:column;gap:22px;margin-top:38px;">
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div style="flex:none;width:42px;height:42px;border-radius:50%;background:#33463B;color:#F6F2EA;display:flex;align-items:center;justify-content:center;font-size:18px;">✆</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9aa094;">Phone</div>
+            <a href="tel:0421768296" style="font-size:18px;font-weight:600;color:#26352C;text-decoration:none;">0421 768 296</a>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div style="flex:none;width:42px;height:42px;border-radius:50%;background:#33463B;color:#F6F2EA;display:flex;align-items:center;justify-content:center;font-size:18px;">✉</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9aa094;">Email</div>
+            <a href="mailto:info@brightmorningstar.net" style="font-size:17px;font-weight:600;color:#26352C;text-decoration:none;">info@brightmorningstar.net</a>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div style="flex:none;width:42px;height:42px;border-radius:50%;background:#33463B;color:#F6F2EA;display:flex;align-items:center;justify-content:center;font-size:18px;">⚲</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9aa094;">Based in</div>
+            <div style="font-size:17px;font-weight:600;color:#26352C;">Macquarie Links, NSW 2565</div>
+            <div style="font-size:14px;color:#5C6157;margin-top:2px;">Serving South West Sydney &amp; greater Sydney</div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(51,70,59,0.14);padding-top:20px;font-size:13.5px;color:#5C6157;line-height:1.6;">
+          Commonwealth-registered marriage celebrant · Australian Marriage Celebrants Member No. M001457
+        </div>
+      </div>
+    </div>
+
+    <form style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:6px;padding:36px;" onSubmit="{{ onSubmit }}">
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;padding:40px 10px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#33463B;">Thank you!</div>
+          <p style="font-size:15px;line-height:1.7;color:#5C6157;margin:12px auto 0;max-width:340px;">Your enquiry has been noted. In your live site this form will email Linda directly — for now, please also call or email using the details on the left.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div><label>Your name</label><input type="text" placeholder="First & last name"></div>
+            <div><label>Partner's name</label><input type="text" placeholder="Optional"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div><label>Email</label><input type="email" placeholder="you@email.com"></div>
+            <div><label>Phone</label><input type="tel" placeholder="04xx xxx xxx"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div><label>Ceremony type</label>
+              <select>
+                <option>Wedding ceremony</option>
+                <option>Elopement / intimate</option>
+                <option>Legals-only</option>
+                <option>Renewal of vows</option>
+                <option>Commitment ceremony</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div><label>Preferred date</label><input type="text" placeholder="e.g. March 2027 (or TBC)"></div>
+          </div>
+          <div><label>Venue / suburb</label><input type="text" placeholder="Where will you be married?"></div>
+          <div><label>Tell me about your day</label><textarea rows="4" placeholder="Your story, guest numbers, any cultural or language elements you'd love to include..."></textarea></div>
+          <button type="submit" style="background:#33463B;color:#F6F2EA;border:none;padding:15px;border-radius:3px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Mulish',sans-serif;">Send enquiry</button>
+          <p style="font-size:12px;color:#9aa094;text-align:center;margin:0;">I'll never share your details. Response within 1–2 days.</p>
+        </div>
+      </sc-if>
+    </form>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { submitted: false };
+  renderVals() {
+    return {
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      onSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>AI Blog Generator | Linda Mani Wedding Celebrant</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Mulish:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#EFE9DE;}
+  a{color:#8a6d3f;}a:hover{color:#B08D57;}
+  ::selection{background:#B08D57;color:#F6F2EA;}
+  input,textarea,select{font-family:'Mulish',sans-serif;color:#2B2B27;background:#FBF9F4;border:1px solid rgba(51,70,59,0.22);border-radius:5px;outline:none;}
+  input:focus,textarea:focus,select:focus{border-color:#B08D57;}
+  textarea{resize:vertical;}
+  .mono{font-family:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;}
+  button{font-family:'Mulish',sans-serif;cursor:pointer;}
+  button:disabled{opacity:0.7;cursor:default;}
+  .article-body h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;line-height:1.15;color:#26352C;margin:0 0 6px;}
+  .article-body h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;line-height:1.2;color:#26352C;margin:30px 0 0;}
+  .article-body h3{font-size:16.5px;font-weight:700;color:#26352C;margin:22px 0 0;}
+  .article-body p{margin:14px 0 0;}
+  .article-body ul{margin:14px 0 0;padding-left:22px;}
+  .article-body li{margin:7px 0;}
+  .article-body a{color:#8a6d3f;font-weight:600;}
+</style>
+</helmet>
+<div style="font-family:'Mulish',sans-serif;color:#2B2B27;min-height:100vh;background:#EFE9DE;">
+
+  <!-- HEADER -->
+  <header style="background:#FBF9F4;border-bottom:1px solid rgba(51,70,59,0.12);">
+    <div style="max-width:1080px;margin:0 auto;padding:26px 28px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;">
+      <div>
+        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:34px;margin:0;color:#26352C;letter-spacing:0.2px;">Blog Generator</h1>
+        <p style="font-size:14px;color:#6b7066;margin:5px 0 0;">AI-powered blog post creation with <strong style="color:#43563d;">E-E-A-T</strong>, <strong style="color:#43563d;">AEO</strong> &amp; <strong style="color:#43563d;">GEO</strong> optimisation</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span style="font-size:13px;color:#8C948A;">{{ userEmail }}</span>
+        <a href="Blog.dc.html" style="display:inline-flex;align-items:center;gap:7px;text-decoration:none;border:1px solid rgba(51,70,59,0.22);color:#33463B;padding:9px 15px;border-radius:5px;font-size:13px;font-weight:600;">↗ View Blog</a>
+        <button style="display:inline-flex;align-items:center;gap:7px;background:transparent;border:1px solid rgba(51,70,59,0.22);color:#33463B;padding:9px 15px;border-radius:5px;font-size:13px;font-weight:600;">⏻ Sign Out</button>
+      </div>
+    </div>
+    <div style="max-width:1080px;margin:0 auto;padding:0 28px 0;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;transform:translateY(1px);">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.icon }} {{ t.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width:1080px;margin:0 auto;padding:30px 28px 80px;">
+
+    <!-- ============ GENERATOR ============ -->
+    <sc-if value="{{ isGenerator }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <!-- Step 1: keyword + LSI -->
+        <section style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:10px;padding:26px 28px;">
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:18px;">
+            <span style="width:26px;height:26px;border-radius:50%;background:#33463B;color:#F6F2EA;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;">1</span>
+            <h2 style="font-size:17px;font-weight:700;margin:0;color:#26352C;">Keyword &amp; LSI Keywords</h2>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <input type="text" value="{{ keyword }}" onInput="{{ onKeyword }}" placeholder="e.g. wedding celebrant Campbelltown" style="flex:1;padding:12px 14px;font-size:14.5px;">
+            <button onClick="{{ onAutoLsi }}" disabled="{{ lsiLoading }}" style="white-space:nowrap;background:#EFE9DE;border:1px solid rgba(51,70,59,0.22);color:#33463B;padding:12px 16px;border-radius:5px;font-size:13.5px;font-weight:600;">{{ lsiLabel }}</button>
+          </div>
+          <div style="font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9aa094;margin:18px 0 8px;">LSI keywords (auto-generated or add manually)</div>
+          <div style="border:1px solid rgba(51,70,59,0.18);background:#F6F2EA;border-radius:6px;padding:12px;min-height:46px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+            <sc-if value="{{ hasLsi }}" hint-placeholder-val="{{ true }}">
+              <sc-for list="{{ lsiChips }}" as="chip" hint-placeholder-count="6">
+                <span style="display:inline-flex;align-items:center;gap:7px;background:#FBF9F4;border:1px solid rgba(51,70,59,0.18);border-radius:100px;padding:5px 12px;font-size:12.5px;color:#43563d;">{{ chip.text }}<button onClick="{{ chip.onRemove }}" style="background:none;border:none;color:#9aa094;font-size:13px;padding:0;line-height:1;">✕</button></span>
+              </sc-for>
+            </sc-if>
+            <sc-if value="{{ noLsi }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:13px;color:#9aa094;">No LSI keywords yet — click "Auto LSI" to generate.</span>
+            </sc-if>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:10px;">
+            <input type="text" value="{{ manualLsi }}" onInput="{{ onManualLsi }}" onKeyDown="{{ onManualLsiKey }}" placeholder="Add a keyword manually…" style="flex:1;padding:10px 13px;font-size:13.5px;">
+            <button onClick="{{ onAddLsi }}" style="width:44px;background:#33463B;color:#F6F2EA;border:none;border-radius:5px;font-size:18px;">+</button>
+          </div>
+        </section>
+
+        <!-- Step 2: settings -->
+        <section style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:10px;padding:26px 28px;">
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:18px;">
+            <span style="width:26px;height:26px;border-radius:50%;background:#33463B;color:#F6F2EA;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;">2</span>
+            <h2 style="font-size:17px;font-weight:700;margin:0;color:#26352C;">Post Settings</h2>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+            <div>
+              <div style="font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9aa094;margin-bottom:7px;">Author</div>
+              <select value="{{ author }}" onChange="{{ onAuthor }}" style="width:100%;padding:11px 13px;font-size:14px;">
+                <sc-for list="{{ authors }}" as="a" hint-placeholder-count="1"><option value="{{ a }}">{{ a }}</option></sc-for>
+              </select>
+            </div>
+            <div>
+              <div style="font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9aa094;margin-bottom:7px;">Category</div>
+              <select value="{{ category }}" onChange="{{ onCategory }}" style="width:100%;padding:11px 13px;font-size:14px;">
+                <sc-for list="{{ categories }}" as="c" hint-placeholder-count="5"><option value="{{ c }}">{{ c }}</option></sc-for>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <!-- Step 3: prompt template -->
+        <section style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:10px;padding:26px 28px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:11px;">
+              <span style="width:26px;height:26px;border-radius:50%;background:#33463B;color:#F6F2EA;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;">3</span>
+              <h2 style="font-size:17px;font-weight:700;margin:0;color:#26352C;">Prompt Template</h2>
+            </div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <sc-for list="{{ vars }}" as="v" hint-placeholder-count="5">
+                <span class="mono" style="background:#EFE9DE;border:1px solid rgba(51,70,59,0.18);border-radius:4px;padding:3px 8px;font-size:11px;color:#5C6157;">{{ v }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <textarea rows="10" value="{{ promptTemplate }}" onInput="{{ onPrompt }}" class="mono" style="width:100%;padding:14px;font-size:12.5px;line-height:1.6;"></textarea>
+        </section>
+
+        <!-- Generate -->
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+          <button onClick="{{ onGenerate }}" disabled="{{ generating }}" style="{{ generateBtnStyle }}">{{ generateLabel }}</button>
+          <sc-if value="{{ genError }}" hint-placeholder-val="{{ false }}">
+            <span style="color:#a3432f;font-size:13.5px;">{{ genError }}</span>
+          </sc-if>
+        </div>
+
+        <!-- Result -->
+        <sc-if value="{{ hasResult }}" hint-placeholder-val="{{ false }}">
+          <section style="background:#FFFFFF;border:1px solid rgba(51,70,59,0.14);border-radius:10px;overflow:hidden;">
+            <div style="background:#33463B;color:#F6F2EA;padding:18px 26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+              <div>
+                <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#B08D57;">Generated draft · {{ resultWords }} words</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-top:3px;">{{ resultTitle }}</div>
+              </div>
+              <div style="display:flex;gap:9px;">
+                <button onClick="{{ onCopyHtml }}" style="background:rgba(255,255,255,0.14);color:#F6F2EA;border:1px solid rgba(255,255,255,0.25);padding:9px 15px;border-radius:5px;font-size:13px;font-weight:600;">{{ copyLabel }}</button>
+                <button onClick="{{ onSavePost }}" style="background:#B08D57;color:#2A362E;border:none;padding:9px 16px;border-radius:5px;font-size:13px;font-weight:700;">Save to All Posts</button>
+              </div>
+            </div>
+            <div style="padding:12px 26px;border-bottom:1px solid rgba(51,70,59,0.1);font-size:12.5px;color:#5C6157;background:#FBF9F4;">
+              <strong>Slug:</strong> /{{ resultSlug }} &nbsp;·&nbsp; <strong>Meta:</strong> {{ resultMeta }}
+            </div>
+            <div style="padding:30px 40px;max-height:560px;overflow:auto;">
+              <div class="article-body">{{ previewEl }}</div>
+            </div>
+          </section>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <!-- ============ QUEUE & SCHEDULER ============ -->
+    <sc-if value="{{ isQueue }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <!-- scheduler banner -->
+        <section style="background:#2A362E;color:#DDE2D9;border-radius:10px;padding:24px 28px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;">
+          <div>
+            <div style="display:flex;align-items:center;gap:11px;">
+              <span style="width:10px;height:10px;border-radius:50%;background:{{ schedulerDot }};box-shadow:0 0 0 4px rgba(255,255,255,0.08);"></span>
+              <span style="font-size:16px;font-weight:700;color:#F6F2EA;">Daily Auto-Post Scheduler</span>
+              <span style="font-size:10.5px;font-weight:800;letter-spacing:1px;background:{{ schedulerBadgeBg }};color:{{ schedulerBadgeColor }};padding:3px 9px;border-radius:4px;">{{ schedulerBadge }}</span>
+            </div>
+            <div style="font-size:13.5px;color:#AFB6AC;margin-top:9px;">Publishing <strong style="color:#F6F2EA;">1 post/day</strong> from the queue · <strong style="color:#F6F2EA;">{{ pendingCount }}</strong> keywords remaining</div>
+            <div class="mono" style="font-size:12px;color:#8C948A;margin-top:5px;">Cron: 0 0 */24 * * *</div>
+          </div>
+          <button onClick="{{ onToggleScheduler }}" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);color:#F6F2EA;padding:11px 20px;border-radius:6px;font-size:13.5px;font-weight:600;">{{ schedulerToggleLabel }}</button>
+        </section>
+
+        <!-- stats -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+          <div style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:10px;padding:26px;text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:#6b7066;line-height:1;">{{ pendingCount }}</div>
+            <div style="font-size:13px;color:#6b7066;margin-top:8px;">Pending</div>
+          </div>
+          <div style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:10px;padding:26px;text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:#3d7a52;line-height:1;">{{ publishedCount }}</div>
+            <div style="font-size:13px;color:#6b7066;margin-top:8px;">Published</div>
+          </div>
+          <div style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:10px;padding:26px;text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:#a3432f;line-height:1;">{{ failedCount }}</div>
+            <div style="font-size:13px;color:#6b7066;margin-top:8px;">Failed</div>
+          </div>
+        </div>
+
+        <!-- add keywords -->
+        <section style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:10px;padding:24px 26px;">
+          <div style="display:flex;align-items:center;gap:9px;margin-bottom:14px;"><span style="font-size:15px;">☰</span><h2 style="font-size:16px;font-weight:700;margin:0;color:#26352C;">Add Keywords to Queue</h2></div>
+          <textarea rows="4" value="{{ queueInput }}" onInput="{{ onQueueInput }}" placeholder="wedding celebrant Ingleburn&#10;elopement packages Camden&#10;how much does a celebrant cost&#10;…one keyword or question per line" class="mono" style="width:100%;padding:13px;font-size:13px;line-height:1.6;"></textarea>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;flex-wrap:wrap;gap:10px;">
+            <span style="font-size:13px;color:#9aa094;">{{ queueReadyCount }} keywords ready to add</span>
+            <button onClick="{{ onAddQueue }}" style="background:#33463B;color:#F6F2EA;border:none;padding:11px 20px;border-radius:6px;font-size:13.5px;font-weight:600;">+ Add to Queue</button>
+          </div>
+        </section>
+
+        <!-- queue list -->
+        <section>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;">
+            <h2 style="font-size:16px;font-weight:800;margin:0;color:#26352C;">Keyword Queue ({{ queueCount }})</h2>
+            <button onClick="{{ onPublishNext }}" disabled="{{ generating }}" style="{{ publishNextStyle }}">{{ publishNextLabel }}</button>
+          </div>
+          <sc-if value="{{ queueEmpty }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#FBF9F4;border:1px dashed rgba(51,70,59,0.22);border-radius:10px;padding:40px;text-align:center;color:#9aa094;font-size:14px;">Queue is empty. Add keywords above to get started.</div>
+          </sc-if>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ queueList }}" as="q" hint-placeholder-count="3">
+              <div style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-left:4px solid {{ q.accent }};border-radius:8px;padding:16px 20px;display:flex;align-items:center;gap:16px;">
+                <span style="font-size:13px;color:#9aa094;width:20px;">{{ q.n }}</span>
+                <span style="font-size:16px;">{{ q.statusIcon }}</span>
+                <div style="flex:1;">
+                  <div style="font-size:14.5px;font-weight:600;color:#26352C;">{{ q.keyword }}</div>
+                  <div style="font-size:12px;color:#9aa094;margin-top:2px;">{{ q.sub }}</div>
+                </div>
+                <span style="{{ q.badgeStyle }}">{{ q.status }}</span>
+                <button onClick="{{ q.onRemove }}" style="background:none;border:none;color:#c07a6a;font-size:15px;padding:4px;">✕</button>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+      </div>
+    </sc-if>
+
+    <!-- ============ ALL POSTS ============ -->
+    <sc-if value="{{ isPosts }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h2 style="font-size:16px;font-weight:800;margin:0 0 16px;color:#26352C;">All Posts ({{ postsCount }})</h2>
+        <sc-if value="{{ postsEmpty }}" hint-placeholder-val="{{ true }}">
+          <div style="background:#FBF9F4;border:1px dashed rgba(51,70,59,0.22);border-radius:10px;padding:44px;text-align:center;color:#9aa094;font-size:14px;">No posts yet. Generate one in the Generator tab or publish from the queue.</div>
+        </sc-if>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ postsList }}" as="p" hint-placeholder-count="3">
+            <div style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:8px;padding:18px 22px;display:flex;align-items:center;gap:18px;">
+              <div style="flex:1;">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#26352C;">{{ p.title }}</div>
+                <div style="font-size:12.5px;color:#9aa094;margin-top:4px;">/{{ p.slug }} · {{ p.category }} · {{ p.author }} · {{ p.date }} · {{ p.words }} words</div>
+              </div>
+              <span style="font-size:11px;font-weight:700;letter-spacing:0.5px;background:rgba(61,122,82,0.14);color:#3d7a52;border:1px solid rgba(61,122,82,0.3);border-radius:5px;padding:5px 10px;">Published</span>
+              <button onClick="{{ p.onView }}" style="background:#33463B;color:#F6F2EA;border:none;padding:8px 14px;border-radius:5px;font-size:12.5px;font-weight:600;">View</button>
+              <button onClick="{{ p.onDelete }}" style="background:none;border:none;color:#c07a6a;font-size:15px;padding:4px;">✕</button>
+            </div>
+          </sc-for>
+        </div>
+
+        <!-- viewer -->
+        <sc-if value="{{ viewingPost }}" hint-placeholder-val="{{ false }}">
+          <div style="position:fixed;inset:0;background:rgba(38,53,44,0.55);z-index:100;display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;overflow:auto;" onClick="{{ onCloseView }}">
+            <div style="background:#FFFFFF;max-width:760px;width:100%;border-radius:10px;overflow:hidden;" onClick="{{ stop }}">
+              <div style="background:#33463B;color:#F6F2EA;padding:16px 26px;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-family:'Cormorant Garamond',serif;font-size:20px;">{{ viewTitle }}</span>
+                <button onClick="{{ onCloseView }}" style="background:none;border:none;color:#F6F2EA;font-size:20px;">✕</button>
+              </div>
+              <div class="article-body" style="padding:32px 40px;max-height:70vh;overflow:auto;">{{ viewEl }}</div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <!-- ============ SETTINGS ============ -->
+    <sc-if value="{{ isSettings }}" hint-placeholder-val="{{ false }}">
+      <section style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:10px;padding:28px;max-width:640px;">
+        <h2 style="font-size:17px;font-weight:700;margin:0 0 22px;color:#26352C;">Settings</h2>
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div>
+            <div style="font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9aa094;margin-bottom:7px;">Brand name</div>
+            <input type="text" value="{{ brand }}" onInput="{{ onBrand }}" style="width:100%;padding:11px 13px;font-size:14px;">
+          </div>
+          <div>
+            <div style="font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9aa094;margin-bottom:7px;">Domain</div>
+            <input type="text" value="{{ domain }}" onInput="{{ onDomain }}" style="width:100%;padding:11px 13px;font-size:14px;">
+          </div>
+          <div>
+            <div style="font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9aa094;margin-bottom:7px;">Sitemap URL</div>
+            <input type="text" value="{{ sitemap }}" onInput="{{ onSitemap }}" style="width:100%;padding:11px 13px;font-size:14px;">
+          </div>
+          <div style="background:#EFE9DE;border-radius:8px;padding:16px 18px;font-size:13px;line-height:1.65;color:#5C6157;">
+            <strong style="color:#43563d;">How live daily posting works:</strong> this panel generates real articles with AI and manages your queue in the browser. To publish automatically every 24 hours unattended, connect the queue to your host's scheduler (a cron job or an automation like Make/Zapier/n8n) that calls this generator and posts the result. Until then, use <strong>“Publish next now”</strong> in the Queue tab to generate on demand.
+          </div>
+          <button onClick="{{ onResetData }}" style="align-self:flex-start;background:transparent;border:1px solid rgba(163,67,47,0.4);color:#a3432f;padding:10px 16px;border-radius:6px;font-size:13px;font-weight:600;">Clear all local data</button>
+        </div>
+      </section>
+    </sc-if>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const STORE_KEY = "lindaMani.blogGen.v1";
+const PROMPT_VERSION = 2;
+const DEFAULT_PROMPT = `ROLE
+You are Linda Mani — a Commonwealth-registered civil marriage celebrant (Australian Marriage Celebrants, Member M001457) with 16 years' experience, based in Macquarie Links and serving South West Sydney (Campbelltown, Ingleburn, Liverpool, Camden, Narellan, Casula, Menai and surrounds within ~20km). You write the blog for {{brand_name}} ({{domain_name}}). You write from genuine first-hand experience: you have personally married 500+ couples, lodged hundreds of Notices of Intended Marriage, and specialise in multicultural, bilingual (including Hindi) and Christian-blessing ceremonies.
+
+TASK
+Write ONE original, publish-ready article of at least 1500 words about: {{keyword}}
+LSI / related keywords to weave in naturally: {{lsi_keywords}}
+Sitemap: {{sitemap_url}}
+It must earn organic traffic AND be quotable by Google AI Overviews / AI answers.
+
+QUALITY BAR (anti-commodity)
+BANNED: generic intros ("In today's world…"), padding, restating the H2 in every paragraph, empty filler listicles, invented statistics, fake reviews, made-up couple names, empty AI phrases ("it's important to note", "when it comes to", "in conclusion"), keyword stuffing.
+REQUIRED: at least 3 concrete first-hand specifics only a working celebrant would know; plain English; short skimmable paragraphs; a clear useful answer in the FIRST paragraph (so AI can extract it); Australian spelling; NSW-accurate detail. Voice: professional, warm, reassuring, first person.
+
+STRUCTURE (clean semantic HTML only — h1, p, h2, h3, ul, li, a)
+1. <h1> with the primary keyword, natural and specific.
+2. Opening paragraph: a bold lead sentence that directly answers the query, then a warm 2-3 sentence setup.
+3. 5-8 <h2> sections of 150-300 words (use <h3> for sub-points).
+4. Bulleted lists only where they genuinely aid scanning.
+5. A short "How I help as your celebrant" section (E-E-A-T).
+6. A 3-5 question FAQ block using real questions couples ask.
+7. A one-line disclaimer for any legal content ("general information, not legal advice; confirm current requirements for your situation").
+8. Close with ONE clear call to action linking to Contact.dc.html.
+
+CITATIONS
+Include 2-4 authoritative outbound links, preferring .gov.au sources (Attorney-General's Department; NSW Registry of Births, Deaths & Marriages; Marriage Act 1961). Descriptive anchor text. NEVER invent a statistic, quote, price or source — if unverified, describe it qualitatively ("usually", "in my experience"). Do not link competitors or other celebrants.
+
+INTERNAL LINKING (3-5 links, at least 2 to other blog posts)
+Weave links naturally into the text with descriptive anchors — never a "related posts" dump. Use these exact same-folder relative hrefs:
+Home.dc.html, About.dc.html, Services.dc.html, Areas.dc.html, Blog.dc.html, Contact.dc.html, article-legally-married-nsw.dc.html, article-noim-explained.dc.html, article-swsydney-locations.dc.html, article-choosing-celebrant.dc.html, article-multicultural-ceremonies.dc.html
+
+OUTPUT
+Return ONLY valid JSON (no markdown code fences, no commentary), in exactly this shape:
+{"title":"SEO title, 55-65 chars","slug":"lowercase-hyphenated-keyword-first","metaDescription":"140-160 chars including the keyword and South West Sydney","category":"one of: Legal Guide, Planning, Local Guide, Ceremony Ideas, Advice","bodyHtml":"<h1>…</h1> … full article HTML …","wordCount":1600}`;
+
+class Component extends DCLogic {
+  state = {
+    tab: "generator",
+    keyword: "", lsi: [], manualLsi: "",
+    author: "Linda Mani", category: "Legal Guide",
+    promptTemplate: DEFAULT_PROMPT,
+    lsiLoading: false, generating: false, genError: "",
+    result: null, copied: false,
+    queueInput: "", queue: [], posts: [],
+    schedulerActive: true, viewId: null,
+    brand: "Linda Mani Wedding Celebrant",
+    domain: "brightmorningstar.net",
+    sitemap: "https://brightmorningstar.net/sitemap.xml",
+    loaded: false,
+  };
+
+  componentDidMount() {
+    try {
+      const raw = localStorage.getItem(STORE_KEY);
+      if (raw) {
+        const s = JSON.parse(raw);
+        // migrate the prompt template to the latest custom prompt
+        if (s.promptVersion !== PROMPT_VERSION) { s.promptTemplate = DEFAULT_PROMPT; s.promptVersion = PROMPT_VERSION; }
+        this.setState(st => ({ ...st, ...s, generating:false, lsiLoading:false, result:null, viewId:null, loaded:true }), this.persist);
+        return;
+      }
+    } catch (e) {}
+    // seed a small demo queue on first load
+    this.setState({ loaded:true, queue: [
+      this.mkQ("wedding celebrant Campbelltown"),
+      this.mkQ("how much does a wedding celebrant cost in Sydney"),
+      this.mkQ("elopement packages South West Sydney"),
+    ]}, this.persist);
+  }
+  mkQ(k){ return { id: Date.now()+Math.random().toString(36).slice(2), keyword:k, status:"pending", date:null }; }
+
+  persist = () => {
+    const { keyword, lsi, author, category, promptTemplate, queue, posts, schedulerActive, brand, domain, sitemap } = this.state;
+    try { localStorage.setItem(STORE_KEY, JSON.stringify({ keyword, lsi, author, category, promptTemplate, queue, posts, schedulerActive, brand, domain, sitemap, promptVersion: PROMPT_VERSION })); } catch(e){}
+  };
+  up = (patch) => this.setState(patch, this.persist);
+
+  buildPrompt(kw){
+    const lsi = this.state.lsi.join(", ") || "(none provided)";
+    return this.state.promptTemplate
+      .split("{{keyword}}").join(kw)
+      .split("{{lsi_keywords}}").join(lsi)
+      .split("{{brand_name}}").join(this.state.brand)
+      .split("{{domain_name}}").join(this.state.domain)
+      .split("{{sitemap_url}}").join(this.state.sitemap);
+  }
+
+  parseResult(txt, kw){
+    let t = (txt||"").trim().replace(/^```(json)?/i,"").replace(/```$/,"").trim();
+    let obj = null;
+    try { obj = JSON.parse(t); } catch(e){
+      const m = t.match(/\{[\s\S]*\}/); if(m){ try{ obj = JSON.parse(m[0]); }catch(e2){} }
+    }
+    if(!obj || !obj.bodyHtml){
+      obj = { title: kw, slug: kw.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""), metaDescription:"", bodyHtml: t || "<p>No content returned.</p>", wordCount: (t||"").split(/\s+/).length };
+    }
+    if(!obj.slug) obj.slug = (obj.title||kw).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+    const wc = obj.wordCount || (obj.bodyHtml.replace(/<[^>]+>/g," ").split(/\s+/).filter(Boolean).length);
+    return { title:obj.title||kw, slug:obj.slug, metaDescription:obj.metaDescription||"", bodyHtml:obj.bodyHtml, words: wc, category:this.state.category, author:this.state.author };
+  }
+
+  async callGenerate(kw){
+    const text = await window.claude.complete({
+      model: "claude-sonnet-4-5",
+      max_tokens: 8000,
+      messages: [{ role:"user", content: this.buildPrompt(kw) }],
+    });
+    return this.parseResult(text, kw);
+  }
+
+  onGenerate = async () => {
+    const kw = this.state.keyword.trim();
+    if(!kw){ this.setState({ genError:"Enter a keyword first." }); return; }
+    this.setState({ generating:true, genError:"", result:null });
+    try {
+      const r = await this.callGenerate(kw);
+      this.setState({ generating:false, result:r });
+    } catch(e){
+      this.setState({ generating:false, genError:"Generation failed: "+(e.message||e)+". Try again in a moment." });
+    }
+  };
+
+  onAutoLsi = async () => {
+    const kw = this.state.keyword.trim();
+    if(!kw){ this.setState({ genError:"Enter a keyword first." }); return; }
+    this.setState({ lsiLoading:true, genError:"" });
+    try {
+      const text = await window.claude.complete({
+        max_tokens: 300,
+        messages: [{ role:"user", content:`Give 8 concise LSI / semantically-related keyword phrases a wedding celebrant would target for the search term "${kw}" (South West Sydney, NSW). Return ONLY a comma-separated list, no numbering, no extra text.` }],
+      });
+      const kws = text.split(/[,\n]/).map(s=>s.replace(/^[\d.\-\s]+/,"").trim()).filter(Boolean).slice(0,10);
+      this.up({ lsi: Array.from(new Set([...this.state.lsi, ...kws])), lsiLoading:false });
+    } catch(e){
+      this.setState({ lsiLoading:false, genError:"Auto-LSI failed: "+(e.message||e) });
+    }
+  };
+
+  addLsi = () => { const v=this.state.manualLsi.trim(); if(!v) return; this.up({ lsi:Array.from(new Set([...this.state.lsi,v])), manualLsi:"" }); };
+  removeLsi = (i) => { const l=[...this.state.lsi]; l.splice(i,1); this.up({ lsi:l }); };
+
+  addQueue = () => {
+    const items = this.state.queueInput.split("\n").map(s=>s.trim()).filter(Boolean).map(k=>this.mkQ(k));
+    if(!items.length) return;
+    this.up({ queue:[...this.state.queue, ...items], queueInput:"" });
+  };
+  removeQueue = (id) => this.up({ queue:this.state.queue.filter(q=>q.id!==id) });
+
+  onPublishNext = async () => {
+    const next = this.state.queue.find(q=>q.status==="pending");
+    if(!next){ this.setState({ genError:"No pending keywords in the queue." }); return; }
+    this.setState({ generating:true, genError:"" });
+    try {
+      const r = await this.callGenerate(next.keyword);
+      const today = new Date().toISOString().slice(0,10);
+      const post = { id:next.id, ...r, date:today, status:"published" };
+      this.up({
+        generating:false,
+        posts:[post, ...this.state.posts],
+        queue:this.state.queue.map(q=>q.id===next.id?{...q,status:"published",date:today}:q),
+      });
+    } catch(e){
+      this.up({ generating:false, genError:"Publish failed: "+(e.message||e), queue:this.state.queue.map(q=>q.id===next.id?{...q,status:"failed"}:q) });
+    }
+  };
+
+  savePost = () => {
+    if(!this.state.result) return;
+    const today = new Date().toISOString().slice(0,10);
+    const post = { id:Date.now()+Math.random().toString(36).slice(2), ...this.state.result, date:today, status:"published" };
+    this.up({ posts:[post, ...this.state.posts] });
+    this.setState({ tab:"posts" });
+  };
+  deletePost = (id) => this.up({ posts:this.state.posts.filter(p=>p.id!==id) });
+
+  copyHtml = () => {
+    if(!this.state.result) return;
+    try { navigator.clipboard.writeText(this.state.result.bodyHtml); } catch(e){}
+    this.setState({ copied:true });
+    setTimeout(()=>this.setState({ copied:false }), 1500);
+  };
+
+  resetData = () => { try{ localStorage.removeItem(STORE_KEY); }catch(e){} this.setState({ queue:[], posts:[], result:null }); };
+
+  renderVals(){
+    const S = this.state;
+    const tabDef = [
+      { key:"generator", label:"Generator", icon:"✦" },
+      { key:"queue", label:"Queue & Scheduler", icon:"☰" },
+      { key:"posts", label:"All Posts", icon:"❐" },
+      { key:"settings", label:"Settings", icon:"⚙" },
+    ];
+    const tabs = tabDef.map(t=>({
+      label:t.label, icon:t.icon,
+      onClick:()=>this.setState({ tab:t.key }),
+      style:`display:inline-flex;align-items:center;gap:7px;padding:11px 16px;font-size:13.5px;font-weight:600;border:1px solid rgba(51,70,59,0.14);border-bottom:none;border-radius:8px 8px 0 0;`+(S.tab===t.key?`background:#EFE9DE;color:#26352C;`:`background:#FBF9F4;color:#8C948A;`),
+    }));
+
+    const lsiChips = S.lsi.map((c,i)=>({ text:c, onRemove:()=>this.removeLsi(i) }));
+
+    const pending = S.queue.filter(q=>q.status==="pending").length;
+    const failed = S.queue.filter(q=>q.status==="failed").length;
+    const queueList = S.queue.map((q,i)=>{
+      const map = {
+        pending:{ accent:"#B08D57", icon:"◷", badge:"background:rgba(176,141,87,0.15);color:#8a6d3f;border:1px solid rgba(176,141,87,0.4);", sub:"Queued" },
+        published:{ accent:"#3d7a52", icon:"✓", badge:"background:rgba(61,122,82,0.14);color:#3d7a52;border:1px solid rgba(61,122,82,0.3);", sub:q.date?("Published: "+q.date):"Published" },
+        failed:{ accent:"#a3432f", icon:"⚠", badge:"background:rgba(163,67,47,0.12);color:#a3432f;border:1px solid rgba(163,67,47,0.35);", sub:"Failed — try again" },
+      }[q.status];
+      return { n:i+1, keyword:q.keyword, status:q.status.charAt(0).toUpperCase()+q.status.slice(1), statusIcon:map.icon, accent:map.accent, sub:map.sub,
+        badgeStyle:"font-size:11px;font-weight:700;letter-spacing:0.4px;border-radius:5px;padding:5px 10px;"+map.badge,
+        onRemove:()=>this.removeQueue(q.id) };
+    });
+
+    const postsList = S.posts.map(p=>({
+      title:p.title, slug:p.slug, category:p.category, author:p.author, date:p.date, words:p.words,
+      onView:()=>this.setState({ viewId:p.id }), onDelete:()=>this.deletePost(p.id),
+    }));
+    const viewing = S.posts.find(p=>p.id===S.viewId);
+    const queueReady = S.queueInput.split("\n").map(s=>s.trim()).filter(Boolean).length;
+
+    return {
+      userEmail: "info@brightmorningstar.net",
+      tabs,
+      isGenerator: S.tab==="generator", isQueue: S.tab==="queue", isPosts: S.tab==="posts", isSettings: S.tab==="settings",
+
+      // generator
+      keyword:S.keyword, onKeyword:(e)=>this.setState({ keyword:e.target.value }),
+      lsiLoading:S.lsiLoading, lsiLabel:S.lsiLoading?"Generating…":"✨ Auto LSI", onAutoLsi:this.onAutoLsi,
+      lsiChips, hasLsi:lsiChips.length>0, noLsi:lsiChips.length===0,
+      manualLsi:S.manualLsi, onManualLsi:(e)=>this.setState({ manualLsi:e.target.value }),
+      onManualLsiKey:(e)=>{ if(e.key==="Enter"){ e.preventDefault(); this.addLsi(); } }, onAddLsi:this.addLsi,
+      author:S.author, onAuthor:(e)=>this.up({ author:e.target.value }), authors:["Linda Mani"],
+      category:S.category, onCategory:(e)=>this.up({ category:e.target.value }),
+      categories:["Legal Guide","Planning","Local Guide","Ceremony Ideas","Advice"],
+      vars:["{{keyword}}","{{lsi_keywords}}","{{brand_name}}","{{domain_name}}","{{sitemap_url}}"],
+      promptTemplate:S.promptTemplate, onPrompt:(e)=>this.up({ promptTemplate:e.target.value }),
+      generating:S.generating, generateLabel:S.generating?"Generating article…":"✦ Generate Article",
+      generateBtnStyle:`background:${S.generating?"#7a8a72":"#33463B"};color:#F6F2EA;border:none;padding:15px 30px;border-radius:7px;font-size:15px;font-weight:700;`,
+      genError:S.genError,
+      hasResult: !!S.result,
+      resultTitle:S.result&&S.result.title, resultWords:S.result&&S.result.words,
+      resultSlug:S.result&&S.result.slug, resultMeta:S.result&&S.result.metaDescription,
+      previewEl: S.result ? React.createElement("div",{ dangerouslySetInnerHTML:{ __html:S.result.bodyHtml }, style:{ fontFamily:"'Mulish',sans-serif", color:"#2B2B27", lineHeight:1.75, fontSize:"15.5px" } }) : null,
+      onCopyHtml:this.copyHtml, copyLabel:S.copied?"Copied ✓":"Copy HTML", onSavePost:this.savePost,
+
+      // queue
+      schedulerActive:S.schedulerActive,
+      schedulerDot:S.schedulerActive?"#4ade80":"#c07a6a",
+      schedulerBadge:S.schedulerActive?"ACTIVE":"PAUSED",
+      schedulerBadgeBg:S.schedulerActive?"#2f7a48":"rgba(255,255,255,0.15)",
+      schedulerBadgeColor:S.schedulerActive?"#eafff0":"#DDE2D9",
+      schedulerToggleLabel:S.schedulerActive?"❚❚ Pause":"▶ Resume",
+      onToggleScheduler:()=>this.up({ schedulerActive:!S.schedulerActive }),
+      pendingCount:pending, publishedCount:S.posts.length, failedCount:failed,
+      queueInput:S.queueInput, onQueueInput:(e)=>this.setState({ queueInput:e.target.value }),
+      queueReadyCount:queueReady, onAddQueue:this.addQueue,
+      queueCount:S.queue.length, queueList, queueEmpty:S.queue.length===0,
+      onPublishNext:this.onPublishNext,
+      publishNextLabel:S.generating?"Working…":"▶ Publish next now",
+      publishNextStyle:`background:${S.generating?"#7a8a72":"#B08D57"};color:#2A362E;border:none;padding:10px 18px;border-radius:6px;font-size:13px;font-weight:700;`,
+
+      // posts
+      postsCount:S.posts.length, postsList, postsEmpty:S.posts.length===0,
+      viewingPost:!!viewing, viewTitle:viewing&&viewing.title,
+      viewEl: viewing ? React.createElement("div",{ dangerouslySetInnerHTML:{ __html:viewing.bodyHtml }, style:{ fontFamily:"'Mulish',sans-serif", color:"#2B2B27", lineHeight:1.75, fontSize:"15.5px" } }) : null,
+      onCloseView:()=>this.setState({ viewId:null }), stop:(e)=>e.stopPropagation(),
+
+      // settings
+      brand:S.brand, onBrand:(e)=>this.up({ brand:e.target.value }),
+      domain:S.domain, onDomain:(e)=>this.up({ domain:e.target.value }),
+      sitemap:S.sitemap, onSitemap:(e)=>this.up({ sitemap:e.target.value }),
+      onResetData:this.resetData,
+    };
+  }
+}
+</script>
+</body>
+</html>

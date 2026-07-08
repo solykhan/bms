@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Wedding & Civil Ceremony Services | Linda Mani, Sydney Marriage Celebrant</title>
+<meta name="description" content="Personalised wedding ceremonies, elopements, legals-only ceremonies, renewal of vows and commitment ceremonies with symbolic rituals — unity candle, sand ceremony, Christian blessings and Hindi elements. Guide prices from $350. South West Sydney.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How far in advance should we book a marriage celebrant?","acceptedAnswer":{"@type":"Answer","text":"The legal Notice of Intended Marriage must be lodged at least one calendar month, and up to 18 months, before your wedding date. Most couples book their celebrant 6–12 months ahead to secure their preferred date."}},
+    {"@type":"Question","name":"How long does a wedding ceremony take?","acceptedAnswer":{"@type":"Answer","text":"A full personalised wedding ceremony usually runs 20–30 minutes. Legals-only ceremonies can be as short as 5–10 minutes."}},
+    {"@type":"Question","name":"What paperwork do we need to get married in NSW?","acceptedAnswer":{"@type":"Answer","text":"You complete a Notice of Intended Marriage (NOIM) and, before the ceremony, sign a Declaration of No Legal Impediment to Marriage. You must show original ID and, if relevant, evidence of the end of any previous marriages."}},
+    {"@type":"Question","name":"Does the celebrant travel to our venue?","acceptedAnswer":{"@type":"Answer","text":"Yes. Travel is included across South West Sydney within roughly 20km of Macquarie Links, with wider Sydney travel available for a small fee."}},
+    {"@type":"Question","name":"Can you include our culture, faith or language in the ceremony?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Linda specialises in multicultural ceremonies that blend traditions and can include Christian blessings and Hindi elements so every family member feels included."}}
+  ]
+}
+</script>
+<style>*{box-sizing:border-box;}body{margin:0;background:#F6F2EA;}a{color:#8a6d3f;}a:hover{color:#B08D57;}::selection{background:#B08D57;color:#F6F2EA;}</style>
+</helmet>
+<div style="font-family:'Mulish',sans-serif;color:#2B2B27;background:#F6F2EA;">
+  <dc-import name="SiteHeader" active="services" hint-size="100%,76px"></dc-import>
+
+  <section style="max-width:820px;margin:0 auto;padding:76px 28px 30px;text-align:center;">
+    <div style="font-size:12.5px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:#B08D57;">Ceremonies &amp; services</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:52px;line-height:1.08;margin:16px 0 0;color:#26352C;">Ceremonies crafted around your story</h1>
+    <p style="font-size:18px;line-height:1.7;color:#4E534A;margin:20px auto 0;max-width:640px;">Every ceremony is written from scratch. Guide prices below are a starting point — your final quote depends on location, travel and how much bespoke writing your day calls for.</p>
+  </section>
+
+  <section style="max-width:1000px;margin:0 auto;padding:40px 28px;display:flex;flex-direction:column;gap:24px;">
+    <sc-for list="{{ services }}" as="s" hint-placeholder-count="5">
+      <div style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:5px;padding:36px 38px;display:grid;grid-template-columns:70px 1fr auto;gap:28px;align-items:start;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:44px;color:#B08D57;line-height:1;">{{ s.num }}</div>
+        <div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;margin:0;color:#26352C;">{{ s.title }}</h2>
+          <p style="font-size:15.5px;line-height:1.75;color:#4E534A;margin:12px 0 0;">{{ s.desc }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+            <sc-for list="{{ s.includes }}" as="inc" hint-placeholder-count="3">
+              <span style="background:rgba(110,132,103,0.14);color:#43563d;border-radius:100px;padding:6px 13px;font-size:12.5px;font-weight:600;">{{ inc }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="text-align:right;white-space:nowrap;">
+          <div style="font-size:11.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#9aa094;">From</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:#33463B;">{{ s.price }}</div>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <!-- RITUALS -->
+  <section style="background:#EFE8DB;margin-top:40px;">
+    <div style="max-width:1160px;margin:0 auto;padding:80px 28px;">
+      <div style="text-align:center;margin-bottom:44px;">
+        <div style="font-size:12.5px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:#B08D57;">Symbolic rituals</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:38px;margin:14px 0 0;color:#26352C;">Meaningful moments you can weave in</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <sc-for list="{{ rituals }}" as="r" hint-placeholder-count="4">
+          <div style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.11);border-radius:4px;padding:28px 24px;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;margin:0;color:#26352C;">{{ r.title }}</h3>
+            <p style="font-size:14px;line-height:1.65;color:#5C6157;margin:10px 0 0;">{{ r.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="max-width:820px;margin:0 auto;padding:84px 28px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div style="font-size:12.5px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:#B08D57;">Good to know</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:38px;margin:14px 0 0;color:#26352C;">Frequently asked questions</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+        <div style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.11);border-radius:4px;padding:24px 28px;">
+          <h3 style="font-size:17px;font-weight:700;margin:0;color:#26352C;">{{ f.q }}</h3>
+          <p style="font-size:15px;line-height:1.7;color:#5C6157;margin:9px 0 0;">{{ f.a }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#33463B;color:#DDE2D9;">
+    <div style="max-width:760px;margin:0 auto;padding:76px 28px;text-align:center;">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:38px;margin:0;color:#F6F2EA;">Not sure which ceremony fits?</h2>
+      <p style="font-size:16.5px;line-height:1.7;color:#AFB6AC;margin:18px auto 30px;max-width:500px;">Tell me about your plans and I'll recommend the right option and a clear quote.</p>
+      <a href="Contact.dc.html" style="display:inline-block;background:#B08D57;color:#2A362E;text-decoration:none;padding:15px 32px;border-radius:2px;font-size:15px;font-weight:700;">Request a quote</a>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      services: [
+        { num: "01", title: "Personalised Wedding Ceremonies", price: "$650", desc: "The full experience — a bespoke ceremony written entirely around you, from how you met to the promises you make. Includes our planning meetings, a fully custom script, unlimited revisions, rehearsal guidance, professional PA system, and all legal documentation lodged correctly and on time.", includes: ["Custom-written script", "Planning meetings", "PA & microphone", "All legal paperwork"] },
+        { num: "02", title: "Elopements & Intimate Ceremonies", price: "$450", desc: "Beautifully complete for just the two of you and your witnesses. Perfect for backyard, beach or registry-style weddings where you want it simple but still deeply personal and legally sound.", includes: ["Two witnesses guidance", "Personal short script", "Legal paperwork"] },
+        { num: "03", title: "Legals-Only Ceremonies", price: "$350", desc: "The legal essentials, performed warmly and correctly in as little as a few minutes. Ideal if you're having a separate celebration, or marrying for visa, travel or personal reasons. Everything is done by the book.", includes: ["Monitum & vows", "Witness declarations", "Certificate lodged"] },
+        { num: "04", title: "Renewal of Vows", price: "$500", desc: "Celebrate the years behind you and the promise ahead. A renewal is not a legal ceremony — it's a heartfelt, personalised celebration of your marriage, wonderful for anniversaries and family milestones.", includes: ["Personal script", "Renewal certificate", "Family involvement"] },
+        { num: "05", title: "Commitment Ceremonies", price: "$450", desc: "A meaningful, fully personalised ceremony to honour your commitment on your own terms — with all the ritual, storytelling and emotion of a wedding, designed exactly the way you want it.", includes: ["Bespoke script", "Symbolic rituals", "PA & microphone"] },
+      ],
+      rituals: [
+        { title: "Unity Candle", desc: "Two flames become one — a timeless symbol of two lives, and often two families, joining together." },
+        { title: "Sand Ceremony", desc: "Layered sands that can never be separated. Beautiful for blending families and children." },
+        { title: "Christian Blessings", desc: "Meaningful faith-based readings, prayers and blessings woven respectfully into your ceremony." },
+        { title: "Hindi Elements", desc: "Traditional grace prayers and cultural elements in Hindi so every guest feels at home." },
+      ],
+      faqs: [
+        { q: "How far in advance should we book?", a: "The legal Notice of Intended Marriage must be lodged at least one calendar month (and up to 18 months) before your wedding date. Most couples book their celebrant 6–12 months ahead to secure their preferred date, but I'm always happy to help with shorter timelines where the law allows." },
+        { q: "How long does a ceremony take?", a: "A full personalised wedding ceremony usually runs 20–30 minutes. Legals-only ceremonies can be as short as 5–10 minutes. We'll design the length to suit your day." },
+        { q: "What paperwork do we need?", a: "You'll complete a Notice of Intended Marriage (NOIM) and, before the ceremony, sign a Declaration of No Legal Impediment to Marriage. You'll need to show original identity and, if relevant, evidence of the end of any previous marriages. I guide you through all of it." },
+        { q: "Do you travel to our venue?", a: "Yes. Travel is included across South West Sydney within roughly 20km of Macquarie Links, and I regularly travel further across greater Sydney for a small travel fee." },
+        { q: "Can you include our culture, faith or language?", a: "Absolutely — this is one of my specialties. I create multicultural ceremonies that blend traditions, and I can include Christian blessings and Hindi elements so every family member feels included." },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

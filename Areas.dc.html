@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Service Areas | Wedding Celebrant South West Sydney — Campbelltown, Liverpool, Camden</title>
+<meta name="description" content="Linda Mani is a marriage celebrant based in Macquarie Links, serving all of South West Sydney within 20km — Campbelltown, Ingleburn, Liverpool, Camden, Narellan, Casula, Menai and more. Travel included.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}body{margin:0;background:#F6F2EA;}a{color:#8a6d3f;}a:hover{color:#B08D57;}::selection{background:#B08D57;color:#F6F2EA;}</style>
+</helmet>
+<div style="font-family:'Mulish',sans-serif;color:#2B2B27;background:#F6F2EA;">
+  <dc-import name="SiteHeader" active="areas" hint-size="100%,76px"></dc-import>
+
+  <section style="max-width:820px;margin:0 auto;padding:76px 28px 20px;text-align:center;">
+    <div style="font-size:12.5px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:#B08D57;">Service areas</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:52px;line-height:1.08;margin:16px 0 0;color:#26352C;">Your local South West Sydney celebrant</h1>
+    <p style="font-size:18px;line-height:1.7;color:#4E534A;margin:20px auto 0;max-width:640px;">Based in <strong>Macquarie Links, NSW 2565</strong>, I marry couples right across South West Sydney. Travel is included within roughly a 20km radius, and I'm always happy to travel further for your day.</p>
+  </section>
+
+  <section style="max-width:1160px;margin:0 auto;padding:50px 28px;display:flex;flex-direction:column;gap:22px;">
+    <sc-for list="{{ regions }}" as="reg" hint-placeholder-count="4">
+      <div style="background:#FBF9F4;border:1px solid rgba(51,70,59,0.12);border-radius:5px;padding:34px 38px;">
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:27px;margin:0;color:#26352C;">{{ reg.name }}</h2>
+          <span style="font-size:13px;color:#9aa094;">{{ reg.note }}</span>
+        </div>
+        <p style="font-size:15px;line-height:1.7;color:#4E534A;margin:12px 0 18px;max-width:820px;">{{ reg.blurb }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:9px;">
+          <sc-for list="{{ reg.suburbs }}" as="sub" hint-placeholder-count="8">
+            <a href="{{ sub.href }}" style="border:1px solid rgba(51,70,59,0.16);border-radius:100px;padding:7px 15px;font-size:13.5px;color:#43563d;text-decoration:none;background:#FBF9F4;" style-hover="border-color:#B08D57;color:#33463B;">{{ sub.name }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <section style="background:#EFE8DB;">
+    <div style="max-width:820px;margin:0 auto;padding:70px 28px;">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:32px;margin:0;color:#26352C;text-align:center;">Ceremonies wherever your story unfolds</h2>
+      <p style="font-size:16.5px;line-height:1.8;color:#3d423a;margin:18px 0 0;text-align:center;">From garden weddings in Camden and Mount Annan to intimate elopements in Menai bushland and grand celebrations across Liverpool and Campbelltown, I've had the privilege of marrying couples in venues, backyards, parks and reception halls all over the South West. Being local means I know the region — the light at golden hour, the traffic on a Saturday, the venues that photograph beautifully — and that local knowledge helps your day run smoothly.</p>
+    </div>
+  </section>
+
+  <section style="background:#33463B;color:#DDE2D9;">
+    <div style="max-width:760px;margin:0 auto;padding:76px 28px;text-align:center;">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:38px;margin:0;color:#F6F2EA;">Is your suburb on the list?</h2>
+      <p style="font-size:16.5px;line-height:1.7;color:#AFB6AC;margin:18px auto 30px;max-width:500px;">Even if it isn't, get in touch — I travel across greater Sydney for the right couple.</p>
+      <a href="Contact.dc.html" style="display:inline-block;background:#B08D57;color:#2A362E;text-decoration:none;padding:15px 32px;border-radius:2px;font-size:15px;font-weight:700;">Check availability</a>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    const slugify = (n) => n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const link = (arr) => arr.map(n => ({ name: n, href: slugify(n) + ".html" }));
+    const regions = [
+        { name: "Campbelltown & Macarthur", note: "my home ground", blurb: "The heart of my service area, centred on Macquarie Links. From formal receptions to relaxed backyard weddings, this is where I marry the most couples each year.", suburbs: ["Macquarie Links","Macquarie Fields","Ingleburn","Minto","Glenfield","Campbelltown","Leumeah","Ambarvale","Bradbury","Raby","Eagle Vale","Eschol Park","St Andrews","Kearns","Macquarie Links","Denham Court","Bow Bowing"] },
+        { name: "Camden & the South West growth corridor", note: "≈15–20km", blurb: "Rolling gardens, historic estates and brand-new venues make Camden and its surrounds a favourite for garden and country-style weddings.", suburbs: ["Camden","Narellan","Oran Park","Gregory Hills","Harrington Park","Mount Annan","Currans Hill","Elderslie","Spring Farm","Rosemeadow"] },
+        { name: "Liverpool & surrounds", note: "≈12–18km", blurb: "A vibrant, multicultural pocket of Sydney — perfect for the cross-cultural and bilingual ceremonies I specialise in.", suburbs: ["Liverpool","Casula","Prestons","Edmondson Park","Leppington","Moorebank","Chipping Norton","Hammondville","Wattle Grove","Holsworthy"] },
+        { name: "Georges River & Menai district", note: "≈15–20km", blurb: "Leafy, riverside suburbs ideal for intimate elopements and relaxed weekend ceremonies close to the bush and water.", suburbs: ["Menai","Illawong","Alfords Point","Revesby","Padstow","Panania","Picnic Point","Bangor"] },
+      ];
+    regions.forEach(r => { r.suburbs = link(r.suburbs); });
+    return { regions };
+  }
+}
+</script>
+</body>
+</html>
