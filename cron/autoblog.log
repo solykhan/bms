@@ -1,2 +1,4 @@
 [2026-07-08 22:20:45] API HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011Ccpaca9FmFxXtZikso6LY"}
 [2026-07-08 22:20:45] FAILED: wedding celebrant Ingleburn — API returned HTTP 401. Check your API key and billing.
+[2026-07-08 22:28:58] API HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CcpbEs5zHTf4bbb7jZuVk"}
+[2026-07-08 22:28:58] FAILED: how much does a wedding celebrant cost in Sydney — API returned HTTP 401. Check your API key and billing.
