@@ -4,3 +4,5 @@
 [2026-07-08 22:28:58] FAILED: how much does a wedding celebrant cost in Sydney — API returned HTTP 401. Check your API key and billing.
 [2026-07-08 22:33:31] API HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CcpbazeDFQPjdKV11kPT7"}
 [2026-07-08 22:33:31] FAILED: elopement packages South West Sydney — API returned HTTP 401. Check your API key and billing.
+[2026-07-09 09:08:29] API HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CcqS1RPzhubx3xEgH8X9Y"}
+[2026-07-09 09:08:29] FAILED: how to write your own wedding vows — API returned HTTP 401. Check your API key and billing.
