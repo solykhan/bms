@@ -10,3 +10,5 @@
 [2026-07-10 09:12:30] FAILED: getting married after divorce in NSW — API returned HTTP 401. Check your API key and billing.
 [2026-07-11 08:59:37] API HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011CcuCx1D7ypcPUK2D6sgNm"}
 [2026-07-11 08:59:37] FAILED: wedding celebrant Liverpool NSW — API returned HTTP 401. Check your API key and billing.
+[2026-07-12 08:49:29] API HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011Ccw5z7zuEL35XdPgxiuTJ"}
+[2026-07-12 08:49:29] FAILED: how long should a wedding ceremony be — API returned HTTP 401. Check your API key and billing.
